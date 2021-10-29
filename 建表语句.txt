@@ -1,0 +1,21 @@
+CREATE TABLE `_v` (
+  `Date` date DEFAULT NULL,
+  `Portfolio name` varchar(255) DEFAULT NULL,
+  `Currency` varchar(255) DEFAULT NULL,
+  `Campaign Name` varchar(255) DEFAULT NULL,
+  `Ad Group Name` varchar(255) DEFAULT NULL,
+  `Targeting` varchar(255) DEFAULT NULL,
+  `Match Type` varchar(255) DEFAULT NULL,
+  `Customer Search Term` varchar(255) DEFAULT NULL,
+  `Impressions` int(255) DEFAULT NULL,
+  `Clicks` int(255) DEFAULT NULL,
+  `Click-Thru Rate (CTR)` float(255,0) DEFAULT NULL,
+  `Cost Per Click (CPC)` float(255,0) DEFAULT NULL,
+  `Spend` float(255,0) DEFAULT NULL,
+  `14 Day Total Sales` float(255,0) DEFAULT NULL,
+  `Total Advertising Cost of Sales (ACoS)` float(255,0) DEFAULT NULL,
+  `Total Return on Advertising Spend (RoAS)` float(255,0) DEFAULT NULL,
+  `14 Day Total Orders (#)` int(255) DEFAULT NULL,
+  `14 Day Total Units (#)` int(255) DEFAULT NULL,
+  `14 Day Conversion Rate` float(255,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
