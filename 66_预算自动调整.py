@@ -165,6 +165,7 @@ def cam_page_setting():
     # '//*[@id="rc-tree-select-list_4"]/ul/li[2]/ul/li[2]/span[3]'
     us_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[1]/span[2]/span').click()
     ca_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[2]/span[2]/span').click()
+    jp_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[3]/span[2]/span').click()
     uk_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[4]/span[2]/span').click()
     de_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[5]/span[2]/span').click()
     fr_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[6]/span[2]/span').click()
@@ -172,6 +173,7 @@ def cam_page_setting():
     es_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[8]/span[2]/span').click()
     au_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[9]/span[2]/span').click()
     nl_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[13]/span[2]/span').click()
+    sg_click = brower.find_element_by_xpath('//*[starts-with(@id,"rc-tree-select-list_")]/ul/li[15]/span[2]/span').click()
     time.sleep(2)
 
     us_unclick = brower.find_element_by_xpath('//*[@class="ant-select-dropdown ant-select-tree-dropdown ant-select-dropdown--multiple ant-select-dropdown-placement-bottomLeft"]/div/ul/li[1]/span[1]').click()
@@ -187,7 +189,7 @@ def cam_page_setting():
 
     time.sleep(1)
     de_unclick = brower.find_element_by_xpath('//*[@class="ant-select-dropdown ant-select-tree-dropdown ant-select-dropdown--multiple ant-select-dropdown-placement-bottomLeft"]/div/ul/li[5]/span[1]').click()
-    de_unchoose = brower.find_element_by_xpath('//*[@title="Amazon-Z01231-DE"]').click()
+    # de_unchoose = brower.find_element_by_xpath('//*[@title="Amazon-Z01231-DE"]').click()
     us_unchoose3 = brower.find_element_by_xpath('//*[@title="Amazon-Z01285-DE"]').click()
 
     #点击高级搜索的下拉框
@@ -249,7 +251,7 @@ def auto_change_budget(min_budget,max_budget,min_acos,max_acos,min_order,max_ord
     
     advance_search_click = brower.find_element_by_xpath('//*[@id="root"]/div/section/section/main/div/div[2]/div/div[3]/div[1]/form[1]/div[12]/div/div/span/button[1]')
     ActionChains(brower).move_to_element(advance_search_click).click().perform()
-    time.sleep(10)  #此处只有20条，10s内加载完成
+    time.sleep(15)  #此处只有20条，10s内加载完成
     
     #此处判断全选按钮是否是可选的 ，如果不可选为display ,返回结果值为false,可以用if  else判断    
     if brower.find_element_by_xpath('//*[@class="ant-table-body"]/table/thead/tr/th/span/div/span/div/label/span/input').is_enabled():
@@ -292,11 +294,11 @@ def auto_change_budget(min_budget,max_budget,min_acos,max_acos,min_order,max_ord
         choose_all_box = brower.find_element_by_xpath('//*[@class="ant-table-body"]/table/thead/tr/th/span/div/span/div/label/span/input')
         ActionChains(brower).move_to_element(choose_all_box).click().perform()
         time.sleep(5)
-        bulk_operation_box_above = brower.find_element_by_xpath('//*[@id="root"]/div/section/section/main/div/div[2]/div/div[3]/div[1]/div[4]/button[2]')
+        bulk_operation_box_above = brower.find_element_by_xpath('//*[@id="root"]/div/section/section/main/div/div[2]/div/div[3]/div[1]/div[4]/button[3]')
         ActionChains(brower).move_to_element(bulk_operation_box_above).perform()
         time.sleep(2)
         print(1234)
-        bulk_change_default_bid = brower.find_element_by_xpath('//*[@class = "ant-dropdown ant-dropdown-placement-bottomLeft"]/ul/li[7]').click()
+        bulk_change_default_bid = brower.find_element_by_xpath('//*[@class = "ant-dropdown ant-dropdown-placement-bottomLeft"]/ul/li[9]').click()
         time.sleep(3)
         budget_change_box = brower.find_element_by_xpath('//*[@class="ant-radio-group ant-radio-group-outline"]/label[2]/span/input').click()
         print('勾选固定值')
@@ -352,7 +354,7 @@ chrome_options.add_argument('window-size=2560x1440')  #指定浏览器分辨率
 chrome_options.add_argument('--disable-gpu')  #谷歌文档提到需要加上这个属性来规避bug
 chrome_options.add_argument('--headless')  #浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败
 
-brower = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
+brower = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 # brower=webdriver.Chrome(ChromeDriverManager().install())
 brower.get(url)
 print('CPC网页进入成功')
